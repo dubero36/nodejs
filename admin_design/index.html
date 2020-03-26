@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+	<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width">
+		<title>관리자 디자인 적용 템플릿</title>
+		<link rel="stylesheet" href="./css/jquery-ui.css">
+		<link rel="stylesheet" href="./css/webfont.css">
+		<link rel="stylesheet" href="./css/common.css">
+		<link rel="stylesheet" href="./css/style.css">
+		
+		<script type="text/javascript" src="./js/jquery-2.2.4.min.js"></script>
+		<script type="text/javascript" src="./js/style.js"></script>		
+	</head>
+<body>
+
+<!-- top start -->
+<header>
+	<h1 style="font-size: 24px;">
+		<a href="/admin/adm99Main/main.do">대한민국배구협회<br/>
+			<small style="font-size: 14px;">Korea Volleyball Association</small>
+		</a>
+	</h1>
+	<h2>통합관리시스템</h2>
+	<div class="rMenu">
+		<button onClick="location.href='/'"><i></i><span>홈페이지</span></button>
+<!-- 		<button onClick="location.href='/admin/adm12InBoard/inBoardMgr.do'"><i></i><span>사내공지</span></button> -->
+<!-- 		<button onClick="location.href='/admin/adm09History/historyMgr.do'"><i></i><span>이력관리</span></button>
+		<button onClick="window.open('/download/KVA_매뉴얼(대표홈페이지관리자)_V1.0.pdf')"><i></i><span>매뉴얼</span></button>
+		<button onClick="location.href='/admin/adm13Setup/setupMgr.do'"><i></i><span>환경설정</span></button> -->
+		<button onClick="location.href='/admin/adm00Login/logout.do'"><i></i><span>로그아웃</span></button>
+	</div>
+</header>
+<!-- top end -->
+
+<section class="cmContents">
+    <div class="cmCttsIn">
+
+		<!-- left start -->    
+    	<aside class="cmAsd">
+			<button class="cmAsdFull on"><span>전체메뉴</span></button> <!-- 활성화상태로시작: class="on" -->
+			<button><span>공지사항</span></button>
+			<button><span>시민광장</span></button>
+			<button><span>알림마당</span></button>	
+			<button><span>사전정보공표</span></button>	
+			<button><span>배너관리</span></button>	
+			<button><span>자주하는질문</span></button>	
+			<button><span>게시판관리</span></button>	
+			<button><span>일정관리</span></button>	
+			<button><span>회원관리</span></button>	
+			<button><span>시스템관리</span></button>	
+		</aside>
+    
+		<div class="cmAsdCont on">
+			<div class="cont">
+				<div class="ctts">
+					<button class="cmAsdFull"><i></i>전체메뉴</button>
+					<button class="btnCls">닫기</button>
+				</div>
+				<div class="menuSch">
+					<div class="shcWrap">
+						<input type="text" title="메뉴명검색"  name="searchMnuNm" id="searchMnuNm" placeholder="메뉴명입력">
+						<button onClick="searchMnu();">검색</button>
+					</div>        
+				</div>
+				<div class="menuWrap full"> <!-- *전체메뉴* 활성화상태로시작: class="full" -->		
+					<dl class="menu on"> <!-- 활성화상태로시작: class="on" -->		
+						<dt><button>공지사항</button></dt>		
+						<dd>		
+							<ul>		
+								<li><button onClick="location.href='/admin/board/boardList.do?p_menuId=10019&p_upMenuId=10000&code=BD_NO_GG'">새메뉴</button></li>		
+								<li><button onClick="location.href='/admin/board/allBoardList.do?p_menuId=10018&p_upMenuId=10000'">통합 공지사항</button></li>		
+								<li><button onClick="location.href='/admin/board/boardList.do?p_menuId=10012&p_upMenuId=10000&code=BD_NO_CN'">공모 공지사항</button></li>
+								<li><button onClick="location.href='/admin/board/boardList.do?p_menuId=10013&p_upMenuId=10000&code=BD_NO_RN'">재공모 공지사항</button></li>
+							</ul>			
+						</dd>
+					</dl>		
+					<dl class="menu on"> <!-- 활성화상태로시작: class="on" -->		
+						<dt><button>시민광장</button></dt>		
+						<dd>		
+							<ul>		
+								<li><button onClick="location.href='/admin/adm02Org/deptMgr.do?p_mstMnuIdx=000006&p_upMstMnuIdx=000005'">부서관리</button></li>		
+								<li><button onClick="location.href='/admin/adm02Org/ofcpsMgr.do?p_mstMnuIdx=000007&p_upMstMnuIdx=000005'">직위(직급/직책)관리</button></li>		
+								<li><button onClick="location.href='/admin/adm02Org/empMgr.do?p_mstMnuIdx=000008&p_upMstMnuIdx=000005'">직원관리</button></li>		
+							</ul>				
+						</dd>
+					</dl>
+		
+					<dl class="menu on"> <!-- 활성화상태로시작: class="on" -->
+						<dt><button>알림마당</button></dt>		
+						<dd>		
+							<ul>		
+								<li><button onClick="location.href='/admin/adm02Org/deptMgr.do?p_mstMnuIdx=000006&p_upMstMnuIdx=000005'">부서관리</button></li>		
+								<li><button onClick="location.href='/admin/adm02Org/ofcpsMgr.do?p_mstMnuIdx=000007&p_upMstMnuIdx=000005'">직위(직급/직책)관리</button></li>		
+								<li><button onClick="location.href='/admin/adm02Org/empMgr.do?p_mstMnuIdx=000008&p_upMstMnuIdx=000005'">직원관리</button></li>		
+							</ul>				
+						</dd>	
+						
+					</dl>
+		
+					<dl class="menu on"> <!-- 활성화상태로시작: class="on" -->		
+						<dt><button>사전정보공표</button></dt>		
+						<dd>		
+							<ul>		
+								<li><button onClick="location.href='/admin/adm04Popup/newPopupMgr.do?p_mstMnuIdx=000011&p_upMstMnuIdx=000010'">새창 팝업 관리</button></li>		
+								<li><button onClick="location.href='/admin/adm04Popup/popupZoneMgr.do?p_mstMnuIdx=000012&p_upMstMnuIdx=000010'">팝업존 관리</button></li>		
+							</ul>				
+						</dd>
+					</dl>
+		
+					<dl class="menu on"> <!-- 활성화상태로시작: class="on" -->		
+						<dt><button>배너관리</button></dt>		
+						<dd>		
+							<ul>		
+								<li><button onClick="location.href='/admin/adm05Banner/mainBannerMgr.do?p_mstMnuIdx=000014&p_upMstMnuIdx=000013'">메인 배너관리</button></li>		
+							</ul>				
+						</dd>
+					</dl>
+		
+					<dl class="menu on"> <!-- 활성화상태로시작: class="on" -->		
+						<dt><button>자주하는질문</button></dt>		
+						<dd>		
+							<ul>		
+								<li><button onClick="location.href='/admin/adm11Board/boardMgr.do?p_mstMnuIdx=100003&p_upMstMnuIdx=000016&p_idNm=artOfAss'">협회소개</button></li>		
+								<li><button onClick="location.href='/admin/adm11Board/boardMgr.do?p_mstMnuIdx=100011&p_upMstMnuIdx=000016&p_idNm=mainRuleChange'">배구소개</button></li>		
+								<li><button onClick="location.href='/admin/adm11Board/boardMgr.do?p_mstMnuIdx=100024&p_upMstMnuIdx=000016&p_idNm=plyr2010'">협회사업</button></li>		
+								<li><button onClick="location.href='/admin/adm11Board/boardMgr.do?p_mstMnuIdx=100133&p_upMstMnuIdx=000016&p_idNm=nationalRepTm'">국가대표팀명단</button></li>		
+								<li><button onClick="location.href='/admin/adm11Board/boardMgr.do?p_mstMnuIdx=100047&p_upMstMnuIdx=000016&p_idNm=notice'">정보알림방</button></li>		
+								<li><button onClick="location.href='/admin/adm11Board/boardMgr.do?p_mstMnuIdx=100057&p_upMstMnuIdx=000016&p_idNm=plyrMeet'">사진방</button></li>		
+								<li><button onClick="location.href='/admin/adm11Board/boardMgr.do?p_mstMnuIdx=100084&p_upMstMnuIdx=000016&p_idNm=freeBoard'">어울림방</button></li>		
+							</ul>				
+						</dd>
+					</dl>
+		
+					<dl class="menu on"> <!-- 활성화상태로시작: class="on" -->		
+						<dt><button>게시판관리</button></dt>		
+						<dd>		
+							<ul>		
+								<li><button onClick="location.href='/admin/adm06Member/memberMgr.do?p_mstMnuIdx=000024&p_upMstMnuIdx=000017'">회원관리</button></li>		
+								<li><button onClick="location.href='/admin/adm06Member/delMemberMgr.do?p_mstMnuIdx=000025&p_upMstMnuIdx=000017'">탈퇴회원</button></li>		
+							</ul>				
+						</dd>
+					</dl>
+		
+					<dl class="menu on"> <!-- 활성화상태로시작: class="on" -->		
+						<dt><button>일정관리</button></dt>		
+						<dd>		
+							<ul>		
+								<li><button onClick="location.href='/admin/adm10Crtf/crtfIssuMgr.do?p_mstMnuIdx=000028&p_upMstMnuIdx=000018'">증명서접수관리</button></li>		
+								<li><button onClick="location.href='/admin/adm10Crtf/crtfIssuComptMgr.do?p_mstMnuIdx=000029&p_upMstMnuIdx=000018'">증명서발급관리</button></li>		
+							</ul>				
+						</dd>
+					</dl>
+		
+					<dl class="menu on"> <!-- 활성화상태로시작: class="on" -->		
+						<dt><button>회원관리</button></dt>		
+						<dd>		
+							<ul>		
+								<li><button onClick="location.href='/admin/adm07Other/contgrpMgr.do?p_mstMnuIdx=000020&p_upMstMnuIdx=000019'">관련단체 관리</button></li>		
+								<li><button onClick="location.href='/admin/adm07Other/spnsMgr.do?p_mstMnuIdx=000021&p_upMstMnuIdx=000019'">후원사 관리</button></li>		
+								<li><button onClick="location.href='/admin/adm07Other/aforgzMgr.do?p_mstMnuIdx=000022&p_upMstMnuIdx=000019'">산하연맹 관리</button></li>		
+							</ul>				
+						</dd>
+					</dl>
+		
+					<dl class="menu on"> <!-- 활성화상태로시작: class="on" -->		
+						<dt><button>시스템관리</button></dt>		
+						<dd>		
+							<ul>		
+								<li><button onClick="location.href='/admin/adm17AthriSupli/athriSupliMgr.do?p_mstMnuIdx=000031&p_upMstMnuIdx=000030'">메뉴관리</button></li>	
+								<li><button onClick="location.href='/admin/adm17AthriSupli/athriSupliMgr.do?p_mstMnuIdx=000031&p_upMstMnuIdx=000030'">권한관리</button></li>	
+							</ul>				
+						</dd>
+					</dl>		
+				</div>
+			</div>
+		</div>
+		<!-- left end -->
+
+		<section class="cmCont move">
+        	<div class="contArea">
+        		<!-- content start -->
+				<div class="top">
+                    <h1>협회소개</h1>
+                    <h2></h2>
+                    <div class="rBtnWrap">
+                        <button class="btnNv" id="boardInput">게시물등록</button>
+                    </div>
+                </div>
+                <div class="menuBox link">
+                    <ul>
+
+                            <li><button onClick="location.href='/admin/adm11Board/boardMgr.do?p_mstMnuIdx=100003&p_upMstMnuIdx=000016&p_idNm=artOfAss'">정관/제규정</button></li>
+
+                    </ul>
+                </div>
+                <div class="cttsArea">
+                    <div class="contents wbd">
+                        <h3>정관/제규정</h3>
+                        <div class="top">
+                            <form id="listForm" method="post" action="/admin/adm11Board/boardMgr.do">
+                                <div class="lSct">
+                                    <div class="if">
+                                        전체 <strong>14</strong>건<span class="bar">|</span>현재페이지 <strong>1/2</strong>
+                                    </div>
+                                </div>
+                                <div class="rSct">
+                                    <div class="schMd">
+                                        <input type="hidden" id="p_mstMnuIdx" name="p_mstMnuIdx" value="100003" />
+                                        <input type="hidden" id="p_upMstMnuIdx" name="p_upMstMnuIdx" value="000016" />
+                                        <input type="hidden" id="currentPageNo" name="currentPageNo" value="1" />
+                                        <input type="hidden" id="p_idNm" name="p_idNm" value="artOfAss" />
+                                        <select name="searchty" id="searchty">
+                                            <option value="01" >제목</option>
+                                            <option value="02" >내용</option>
+                                        </select>
+                                        <div class="schWrap">
+                                            <input type="text" title="검색" placeholder="검색어를 입력하세요." name="searchKeyword" id="searchKeyword" value="" maxlength="100">
+                                            <button id="btnSearch" title="검색">검색</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <div class="boardWrap">
+                            <table class="tbCm boardWh">
+
+                                    <colgroup>
+                                        <col style="width:10%;">
+                                        <col style="">
+                                        <col style="width:15%;">
+                                        <col style="width:20%;">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>번호</th>
+                                            <th>제목</th>
+                                            <th>보기</th>
+                                            <th>작성일</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+
+                                            <tr>
+                                                <td>14</td>
+                                                <td class="lt">스포츠공정위원회규정(2020.1.31.)</td>
+                                                <td><button class="btnWh" onClick="javascript:fnBtnBoardDetail('14');">다운받기</button></td>
+                                                <td>
+
+                                                    2020-02-18
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>13</td>
+                                                <td class="lt">배구 지도자연수회에 관한 규정</td>
+                                                <td><button class="btnWh" onClick="javascript:fnBtnBoardDetail('13');">다운받기</button></td>
+                                                <td>
+
+                                                    2019-12-04
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>12</td>
+                                                <td class="lt">심판위원회 규정</td>
+                                                <td><button class="btnWh" onClick="javascript:fnBtnBoardDetail('12');">다운받기</button></td>
+                                                <td>
+
+                                                    2019-12-03
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>11</td>
+                                                <td class="lt">생활체육위원회 규정</td>
+                                                <td><button class="btnWh" onClick="javascript:fnBtnBoardDetail('11');">다운받기</button></td>
+                                                <td>
+
+                                                    2019-10-14
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>10</td>
+                                                <td class="lt">선수위원회규정</td>
+                                                <td><button class="btnWh" onClick="javascript:fnBtnBoardDetail('10');">다운받기</button></td>
+                                                <td>
+
+                                                    2018-12-11
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>9</td>
+                                                <td class="lt">경기인 등록 규정</td>
+                                                <td><button class="btnWh" onClick="javascript:fnBtnBoardDetail('9');">다운받기</button></td>
+                                                <td>
+
+                                                    2018-10-23
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>8</td>
+                                                <td class="lt">대한민국배구협회 공인규정(2018.07.19)</td>
+                                                <td><button class="btnWh" onClick="javascript:fnBtnBoardDetail('7');">다운받기</button></td>
+                                                <td>
+
+                                                    2018-07-19
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>7</td>
+                                                <td class="lt">심판원에 관한 규정</td>
+                                                <td><button class="btnWh" onClick="javascript:fnBtnBoardDetail('6');">다운받기</button></td>
+                                                <td>
+
+                                                    2017-04-12
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>6</td>
+                                                <td class="lt">대한민국배구협회 회장선거규정</td>
+                                                <td><button class="btnWh" onClick="javascript:fnBtnBoardDetail('5');">다운받기</button></td>
+                                                <td>
+
+                                                    2016-06-21
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>5</td>
+                                                <td class="lt">사단법인 대한민국배구협회 정관</td>
+                                                <td><button class="btnWh" onClick="javascript:fnBtnBoardDetail('4');">다운받기</button></td>
+                                                <td>
+
+                                                    2016-03-08
+                                                </td>
+                                            </tr>
+
+                                    </tbody>
+
+
+
+
+                            </table>
+                        </div>
+                        
+                        
+                        
+                        <div class="pageWrap">
+                            <a class="fst" href="#" onclick="linkPage(1); return false;">&#160;</a><a class="prv" href="#" onclick="linkPage(1); return false;"></a>&#160;<a class="on" href="#">1</a>&#160;<a href="#" onclick="linkPage(2); return false;">2</a>&#160;<a href="#" onclick="linkPage(3); return false;">3</a>&#160;<a href="#" onclick="linkPage(4); return false;">4</a>&#160;<a href="#" onclick="linkPage(5); return false;">5</a>&#160;<a href="#" onclick="linkPage(6); return false;">6</a>&#160;<a href="#" onclick="linkPage(7); return false;">7</a>&#160;<a href="#" onclick="linkPage(8); return false;">8</a>&#160;<a href="#" onclick="linkPage(9); return false;">9</a>&#160;<a href="#" onclick="linkPage(10); return false;">10</a>&#160;<a class="nxt" href="#" onclick="linkPage(11); return false;"></a>&#160;<a class="lst" href="#" onclick="linkPage(125); return false;"></a>&#160;
+                        </div>
+                        
+                        <div class="btnWrap">
+                            <button class="btnBk" id="boardListDown">목록</button>
+                            <button class="btnWh" id="boardUpdateDown">수정</button>
+                            <button class="btnWh" id="boardDeleteDown">삭제</button>
+                            
+                            <div class="rt">
+                                <button class="btnNv" name="insertForm">팝업등록</button>
+                            </div>
+                        </div>
+        		<!-- content end -->
+	                </div>
+	                <div class="btnWrap">
+                        <button class="btnBk" id="boardListDown">목록</button>
+                        <button class="btnWh" id="boardUpdateDown">수정</button>
+                        <button class="btnWh" id="boardDeleteDown">삭제</button>
+                    </div>
+				</div>
+        	</div>
+        </section>
+	</div>
+</section>	
+</body>
+</html>

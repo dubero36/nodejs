@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>팝업레이어</title>
+
+<style type="text/css">  
+    button , #btnFileInfoClose { 
+        cursor: pointer;
+    }
+</style>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+$(function(){
+
+    $('button.btnFileView').click(function(e){
+        console.log('btnFileView click', $("#layerFileInfo").css('display'));
+        
+        var v_thisOffset = $(this).offset();
+        var v_mempplist = $('#layerFileInfo');
+        var v_mempplistW = v_mempplist.width() + 20;
+        var v_mempplistH = v_mempplist.height() / 2;
+        v_mempplist.css({'left':v_thisOffset.left + 0 ,'top':v_thisOffset.top + 24});
+        v_mempplist.show();
+        //$(".container").addClass('bg');
+        //e.preventDefault();       //현재 이벤트의 기본 동작을 중단
+        e.stopPropagation()       //현재 이벤트가 상위로 전파되지 않도록 중단
+        //e.stopImmediatePropagation(); //현재 이벤트가 상위뿐 아니라 현재 레벨에 걸린 다른 이벤트도 동작하지 않도록 중단한다
+        //return false;               //jquery 사용시 위의 두개 모두 수행한 것과 같다
+        
+    });
+
+    $(".container").click(function(e){
+        console.log('container click', $("#layerFileInfo").css('display'));
+        closeFileInfo();
+        //if($("#layerFileInfo").css('display')=='block')
+        //    $("#layerFileInfo").hide();
+        //e.preventDefault();
+    });
+    
+    $("#btnFileInfoClose").click(function(){
+        closeFileInfo();
+    });
+});    
+
+function closeFileInfo() {
+    var obj = $("#layerFileInfo");
+    if(obj.css('display')=='block') {
+        obj.hide();
+    }
+}
+    
+/*
+function closeLayer( obj ) {
+	$(obj).parent().parent().hide();
+}
+
+$(function(){
+
+	// 클릭 클릭시 클릭을 클릭한 위치 근처에 레이어가 나타난다. 
+	$('.imgSelect').click(function(e)
+	{
+		var sWidth = window.innerWidth;
+		var sHeight = window.innerHeight;
+
+		var oWidth = $('.popupLayer').width();
+		var oHeight = $('.popupLayer').height();
+
+		// 레이어가 나타날 위치를 셋팅한다.
+		var divLeft = e.clientX + 10;
+		var divTop = e.clientY + 5;
+
+		// 레이어가 화면 크기를 벗어나면 위치를 바꾸어 배치한다.
+		if( divLeft + oWidth > sWidth ) divLeft -= oWidth;
+		if( divTop + oHeight > sHeight ) divTop -= oHeight;
+
+		// 레이어 위치를 바꾸었더니 상단기준점(0,0) 밖으로 벗어난다면 상단기준점(0,0)에 배치하자.
+		if( divLeft < 0 ) divLeft = 0;
+		if( divTop < 0 ) divTop = 0;
+
+		$('.popupLayer').css({
+			"top": divTop,
+			"left": divLeft,
+			"position": "absolute"
+		}).show();
+	});
+
+});
+    */
+</script>
+
+</head>
+
+<body>
+<div id="layerFileInfo" style="display: none;position:absolute;border:1px solid red;background:#fff;width:150px;">
+    <div style="border:1px solid #eee;float:right" id="btnFileInfoClose">X</div>
+    <ul>
+        <li>파일명 다운</li>
+        <li>파일명 다운</li>
+        <li>파일명 다운</li>
+    </ul>     
+</div>
+
+<div class="container" style="width:100%;height:100%;background-color: powderblue;">
+<table border="1">
+    <tr>
+        <td>1</td>
+        <td>제목입니다</td>
+        <td>홍길도</td>
+        <td>2020-03-23</td>
+        <td><button class="btnFileView">레이어띄우기</button></td>        
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>제목입니다</td>
+        <td>홍길도</td>
+        <td>2020-03-23</td>
+        <td><button class="btnFileView">레이어띄우기</button></td>        
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>제목입니다</td>
+        <td>홍길도</td>
+        <td>2020-03-23</td>
+        <td><button class="btnFileView">레이어띄우기</button></td>        
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>제목입니다</td>
+        <td>홍길도</td>
+        <td>2020-03-23</td>
+        <td><button class="btnFileView">레이어띄우기</button></td>        
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>제목입니다</td>
+        <td>홍길도</td>
+        <td>2020-03-23</td>
+        <td><button class="btnFileView">레이어띄우기</button></td>        
+    </tr>
+</table>
+</div>
+    
+</body>
+
+</html>

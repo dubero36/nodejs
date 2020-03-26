@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery</title>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+      $( document ).ready( function() {
+        $( '.check-all' ).click( function() {
+          $( '.ab' ).prop( 'checked', this.checked );
+        } );
+      } );
+    </script>
+  </head>
+  <body>
+    <form>
+      <p><input type="checkbox" name="all" class="check-all"> <label>Check ALL</label></p>
+      <hr>
+      <p><input type="checkbox" name="cb1" class="ab"> <label>Checkbox 1</label></p>
+      <p><input type="checkbox" name="cb2" class="ab"> <label>Checkbox 2</label></p>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url(./font/NanumGothic-Regular.eot);
+  src: url(./font/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
+       url(./font/NanumGothic-Regular.woff2) format('woff2'),
+       url(./font/NanumGothic-Regular.woff) format('woff'),
+       url(./font/NanumGothic-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 700;
+  src: url(./font/NanumGothic-Bold.eot);
+  src: url(./font/NanumGothic-Bold.eot?#iefix) format('embedded-opentype'),
+       url(./font/NanumGothic-Bold.woff2) format('woff2'),
+       url(./font/NanumGothic-Bold.woff) format('woff'),
+       url(./font/NanumGothic-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'NEXONFootballGothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url(./font/NEXONFootballGothicL.otf);
+  src: url(./font/NEXONFootballGothicL.otf?#iefix) format('embedded-opentype'),
+       url(./font/NEXONFootballGothicL.woff2) format('woff2'),
+       url(./font/NEXONFootballGothicL.woff) format('woff'),
+       url(./font/NEXONFootballGothicL.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'NEXONFootballGothic';
+  font-style: normal;
+  font-weight: 700;
+  src: url(./font/NEXONFootballGothicB.otf);
+  src: url(./font/NEXONFootballGothicB.otf?#iefix) format('embedded-opentype'),
+       url(./font/NEXONFootballGothicB.woff2) format('woff2'),
+       url(./font/NEXONFootballGothicB.woff) format('woff'),
+       url(./font/NEXONFootballGothicB.ttf) format('truetype');
+}

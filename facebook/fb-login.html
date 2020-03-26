@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="-1">
+    <title>Facebook Login JavaScript Example</title>    
+<meta charset="UTF-8">
+</head>
+<body>
+<script>
+
+  function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+    console.log('statusChangeCallback');
+    console.log(response);                   // The current login status of the person.
+    if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+      testAPI();  
+    } else {                                 // Not logged into your webpage or we are unable to tell.
+      document.getElementById('status').innerHTML = 'Please log ' + 'into this webpage.';
+    }
+  }
+
+
+  function checkLoginState() {               // Called when a person is finished with the Login Button.
+    console.log(1);
+    FB.getLoginStatus(function(response) {   // See the onlogin handler
+      console.log(2);
+      statusChangeCallback(response);
+      console.log(3);
+    });
+  }
+
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '508161890096231',
+      cookie     : true,                     // Enable cookies to allow the server to access the session.
+      xfbml      : true,                     // Parse social plugins on this webpage.
+      version    : 'v5.0'           // Use this Graph API version for this call.
+    });
+
+
+    FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+      statusChangeCallback(response);        // Returns the login status.
+    });
+  };
+
+  
+  (function(d, s, id) {                      // Load the SDK asynchronously
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/ko_KR/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+ 
+  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me?fields=id,name,email', function(response) {
+      console.log('Successful login for: ' + response.name, ", ID:",response.id, ", Email:" + response.email);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+
+  function facebookLoginCheck() {
+	try {
+		// 페이스북 로그인 체크
+		FB.getLoginStatus(function(response1) {
+			if(response1.status == 'connected') {	// 페이스북 로그인 되어 있는 경우
+				facebookLoginProc();	// 페이스북 회원 정보 조회 후 다덴 로그인 처리
+			
+			} else {	// 페이스북 로그아웃되어 있는 경우
+				FB.login(function(response2) {	// 페이스북 로그인 팝업 출력
+					if(response2.status === 'connected') {	// 페이스북 로그인 완료된 경우
+						facebookLoginProc();	// 페이스북 회원 정보 조회 후 다덴 로그인 처리
+					}
+				}, {scope: 'public_profile,email'});
+			}
+		});
+		
+	} catch(e) {
+		alert(e.message);
+	}
+}
+
+function facebookLoginProc() {
+	FB.api('/me?fields=name,email', function(user) {
+        console.log('logined user info:', user);
+        /*
+        $.ajax({
+			type:"POST",
+			url:"/member/facebook/memberCheck.php",
+			cache:false,
+			async:false,
+			dataType:'json',
+			data:{"userID": user.id, "userName":encodeURIComponent(user.name), "userEmail":user.email, "userSex":user.gender},
+			timeout:1000,
+			success:function(data) {
+				if(data.retCode == '1') {
+					top.location.href = 'http://origin.darkeden.com/?view=ok';
+				} else if(data.retCode == '-2') {
+					var userToken = encodeURIComponent(data.userToken);
+
+					top.location.href ='http://origin.darkeden.com/member/facebook/privInfoAgree.php?userToken='+userToken;
+				} else if(data.retCode == '-3') {
+					alert('고객님은 다크에덴 오리진 서비스 이용을 철회 하셨습니다.\n재가입은 철회 신청일로부터 3일 후 가능합니다.');
+					return false;
+				} else if(data.retCode == '-4') {
+					window.open('', 'popMemberAuth', 'width=500, height=350, top=100, left=100, fullscreen=no, menubar=no, status=no, toolbar=no, titlebar=yes, location=no, scrollbars=yes');
+
+					$("#frmProc").remove();	$("body").append( "<form id='frmProc'></form>" );
+					$("#frmProc").attr({method:"POST", action:"https://secure.origin.darkeden.com/member/auth/memberAuth.php", target:"popMemberAuth"})
+									.append("<input type='hidden' name='memberMode' value='snsMemberAuth'>")
+									.append("<input type='hidden' name='userToken_sn' value='"+data.userToken+"'>")
+									.submit();
+				} else {
+					alert('데이타 에러!'+data.retCode);
+				}
+			}
+        });
+        */
+	});
+}
+</script>
+
+
+//  The JS SDK Login Button 
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<button onclick="facebookLoginCheck();">페이스북으로 로그인하기</button>
+<div id="status">
+</div>
+
+</body>
+</html>

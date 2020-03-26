@@ -1,0 +1,41 @@
+
+<!doctype html>
+<html>
+<head>
+   <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script> 
+$(document).ready(function(){ 
+    $("#popup_open").click(function(){ 
+        $("#popup_wrap").css("display", "block"); 
+        $("#mask").css("display", "block"); 
+    }); 
+    $("#popup_close").click(function(){ 
+        $("#popup_wrap").css("display", "none"); 
+        $("#mask").css("display", "none"); 
+    }); 
+}); 
+</script>
+
+<style>
+#popup_wrap {width:560px; height:270px; background:#fff; border: solid 1px #666666; position:fixed; top:50%; left:50%; margin:-250px 0 0 -250px; z-index:9999; display:none;}
+#mask {width:100%; height:100%; position:fixed; background:rgba(0,0,0,0.7) repeat; top:0; left:0; z-index:999; display:none;}
+.popup-cont01 {width:478px; margin: 40px auto; text-align: center;}
+.popup-cont01 button { width: 138px; height: 36px; line-height: 36px; background: #9f2f60; color: #ffffff; text-align: center; border: none; font-size: 16px;}
+</style>
+</head>
+<body>
+    <li id="popup_open"><a href="#none">레이어팝업 클릭</a></li>
+    <div id="popup_wrap">
+    <div class="popup-cont01">      
+            <button onclick="location.href='링크경로삽입'";>링크텍스트 삽입</button>&nbsp;&nbsp;
+            <button id="popup_close">닫기</button>
+      </div>
+    </div>
+    <div id="mask"></div>
+
+
+</body>
+</html>
